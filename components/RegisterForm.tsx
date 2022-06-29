@@ -42,7 +42,9 @@ const RegisterForm = () => {
         onChange={(value: string) => setPassword(value)}
         placeholder='Password'
       />
-      <button type='submit'>Register</button>
+      <div className='col-span-full flex items-center justify-center'>
+        <button type='submit'>Register</button>
+      </div>
     </form>
   )
 }

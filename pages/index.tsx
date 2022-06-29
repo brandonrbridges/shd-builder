@@ -8,6 +8,9 @@ import Link from 'next/link'
 // Context
 import { useAuthContext } from '@/context/auth'
 
+// Components
+import SHDBuilder from '@/components/SHDBuilder'
+
 const Home: NextPage = () => {
   const { user } = useAuthContext()
 
@@ -19,18 +22,11 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div className='container border p-4 rounded'>
-        <p className='font-bold'>Welcome to the SHD Builder.</p>
-        {!user && (
-          <>
-            <Link href='/register'>
-              <a>Register</a>
-            </Link>
-            <Link href='/login'>
-              <a>Login</a>
-            </Link>
-          </>
-        )}
+      <div className='flex flex-col space-y-4'>
+        <div className='container border p-4 rounded'>
+          <p className='font-bold'>Welcome to the SHD Builder.</p>
+        </div>
+        <SHDBuilder />
       </div>
     </>
   )
