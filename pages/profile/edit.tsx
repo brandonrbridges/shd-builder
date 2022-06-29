@@ -19,7 +19,10 @@ const EditProfile: NextPage = () => {
 
   const { user, loading } = useAuthContext()
 
-  const [profile, setProfile] = useState({})
+  const [profile, setProfile] = useState({
+    id: '',
+    email: '',
+  })
 
   useEffect(() => {
     if (!loading && !user) {
@@ -27,7 +30,7 @@ const EditProfile: NextPage = () => {
     } else {
       setProfile(user)
     }
-  }, [user, loading])
+  }, [router, user, loading])
 
   if (!loading && user) {
     return (

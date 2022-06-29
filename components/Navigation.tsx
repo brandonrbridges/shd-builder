@@ -2,8 +2,9 @@ import Link from 'next/link'
 
 interface NavigationProps {
   user?: {
-    email: string
-  }
+    email?: string
+    username?: string
+  } | null
 }
 
 const Navigation = ({ user }: NavigationProps) => {

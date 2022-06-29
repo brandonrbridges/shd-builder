@@ -6,14 +6,20 @@ import { TextField } from '@/components/Form'
 import { updateFirebaseDoc } from '@/helpers/firebase'
 
 interface ProfileFormProps {
-  profile: {
-    email?: string
-    username?: string
-  }
+  profile: ProfileProps
+}
+
+interface ProfileProps {
+  id: string
+  email: string
+  username?: string | undefined
 }
 
 const ProfileForm = ({ profile }: ProfileFormProps) => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState<ProfileProps>({
+    id: '',
+    email: '',
+  })
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault()

@@ -20,7 +20,7 @@ const Profile: NextPage = () => {
     if (!loading && !user) {
       router.push('/login')
     }
-  }, [user, loading])
+  }, [router, user, loading])
 
   if (!loading && user) {
     return (
