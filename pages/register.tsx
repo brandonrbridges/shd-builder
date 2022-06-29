@@ -12,9 +12,9 @@ import { useRouter } from 'next/router'
 import { useAuthContext } from '../context/auth'
 
 // Components
-import LoginForm from '../components/LoginForm'
+import RegisterForm from '../components/RegisterForm'
 
-const Login: NextPage = () => {
+const Register: NextPage = () => {
   const router = useRouter()
 
   const { user } = useAuthContext()
@@ -34,11 +34,11 @@ const Login: NextPage = () => {
       </Head>
 
       <div className='container border p-4 rounded'>
-        <p className='font-bold'>Login to the SHD Builder.</p>
-        <LoginForm />
+        <p className='font-bold'>Register to the SHD Builder.</p>
+        <RegisterForm />
       </div>
     </div>
   )
 }
 
-export default Login
+export default Register

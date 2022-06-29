@@ -19,14 +19,14 @@ import useLocalStorage from '../hooks/useLocalStorage'
 const AuthContext = createContext({ user: null, loading: true })
 
 const format = async (user) => {
-  const existing = await getFirebaseDoc('users', user.id)
+  const existing = await getFirebaseDoc('users', user.uid)
 
   if (existing) {
     return existing
   }
 }
 
-const getAuth = () => {
+const useAuth = () => {
   const router = useRouter()
 
   const [user, setUser] = useState(null)
@@ -94,10 +94,10 @@ const getAuth = () => {
 }
 
 export const AuthProvider = ({ children }) => {
-  let auth = getAuth()
+  let auth = useAuth()
 
   useEffect(() => {
-    const fn = () => (auth = getAuth())
+    const fn = () => (auth = useAuth())
 
     return () => fn()
   }, [])
