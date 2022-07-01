@@ -12,6 +12,7 @@ import { useRouter } from 'next/router'
 import { useAuthContext } from '@/context/auth'
 
 // Components
+import PageHeader from '@/components/PageHeader'
 import ProfileForm from '@/components/ProfileForm'
 
 const EditProfile: NextPage = () => {
@@ -19,7 +20,7 @@ const EditProfile: NextPage = () => {
 
   const { user, loading } = useAuthContext()
 
-  const [profile, setProfile] = useState({
+  const [profile, setProfile] = useState<any>({
     id: '',
     email: '',
   })
@@ -35,7 +36,7 @@ const EditProfile: NextPage = () => {
   if (!loading && user) {
     return (
       <div className='container'>
-        <h1>Profile</h1>
+        <PageHeader title='Edit Profile' />
         <div className='border p-4 rounded'>
           <ProfileForm profile={profile} />
         </div>

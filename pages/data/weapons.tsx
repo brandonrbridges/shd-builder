@@ -1,17 +1,20 @@
+// Components
 import DataForm from '@/components/DataForm'
+import PageHeader from '@/components/PageHeader'
+import Spacer from '@/components/Spacer'
+import Widget from '@/components/Widget'
 
 const Weapons = () => {
   return (
     <>
       <div className='container'>
-        <h1>Weapons</h1>
+        <PageHeader title='Weapons' />
 
-        <div className='space-y-4'>
-          <div className='border p-4 rounded'>
-            <p>Quick Add Weapon</p>
+        <Spacer gap={8}>
+          <Widget title='Quick Add Weapons'>
             <DataForm type='weapon' />
-          </div>
-        </div>
+          </Widget>
+        </Spacer>
       </div>
     </>
   )

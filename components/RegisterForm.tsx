@@ -19,8 +19,6 @@ const RegisterForm = () => {
   const handleRegister = (event: React.SyntheticEvent) => {
     event.preventDefault()
 
-    console.log('[App] Registering user: ' + username)
-
     createUser(username, password)
       .then((user) => {
         if (user) {

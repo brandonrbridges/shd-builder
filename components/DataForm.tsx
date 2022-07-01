@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import useForm from '@/hooks/useForm'
 
 // Components
+import Button from '@/components/Button'
 import { SelectField, TextField } from '@/components/Form'
 
 const weaponFields = [
@@ -95,7 +96,7 @@ interface DataEntryProps {
 }
 
 const DataForm = ({ type }: DataEntryProps) => {
-  const [fields, setFields] = useState([])
+  const [fields, setFields] = useState<Array<any>>([])
   const [data, setData] = useForm({})
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
@@ -143,7 +144,9 @@ const DataForm = ({ type }: DataEntryProps) => {
         }
       })}
       <div className='col-span-full flex items-center justify-center'>
-        <button type='submit'>Add {type}</button>
+        <Button type='submit' variant='primary'>
+          Add {type}
+        </Button>
       </div>
     </form>
   )

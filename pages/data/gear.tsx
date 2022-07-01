@@ -1,17 +1,20 @@
+// Components
 import DataForm from '@/components/DataForm'
+import PageHeader from '@/components/PageHeader'
+import Spacer from '@/components/Spacer'
+import Widget from '@/components/Widget'
 
 const Gear = () => {
   return (
     <>
       <div className='container'>
-        <h1>Gear</h1>
+        <PageHeader title='Gear' />
 
-        <div className='space-y-4'>
-          <div className='border p-4 rounded'>
-            <p>Quick Add Gear</p>
+        <Spacer gap={8}>
+          <Widget title='Quick Add Gear'>
             <DataForm type='gear' />
-          </div>
-        </div>
+          </Widget>
+        </Spacer>
       </div>
     </>
   )

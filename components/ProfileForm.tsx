@@ -1,9 +1,12 @@
 // Hooks
 import React, { useEffect, useState } from 'react'
 
-// Components
-import { TextField } from '@/components/Form'
+// Firebase
 import { updateFirebaseDoc } from '@/helpers/firebase'
+
+// Components
+import Button from '@/components/Button'
+import { TextField } from '@/components/Form'
 
 interface ProfileFormProps {
   profile: ProfileProps
@@ -47,7 +50,9 @@ const ProfileForm = ({ profile }: ProfileFormProps) => {
         />
       </div>
       <div className='col-span-full flex items-center justify-center'>
-        <button type='submit'>Update Profile</button>
+        <Button type='submit' variant='primary'>
+          Update Profile
+        </Button>
       </div>
     </form>
   )
