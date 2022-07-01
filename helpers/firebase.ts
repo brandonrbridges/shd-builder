@@ -15,7 +15,7 @@ import {
   updateDoc,
 } from 'firebase/firestore'
 
-export const addFirebaseDoc = async (col: string, data: object, id: string) => {
+export const addFirebaseDoc = async (col: string, data: object, id?: string) => {
   let document = null
 
   if (id) {

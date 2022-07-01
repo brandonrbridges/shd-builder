@@ -4,6 +4,9 @@ import React, { useEffect, useState } from 'react'
 // Hooks
 import useForm from '@/hooks/useForm'
 
+// Firebase
+import { addFirebaseDoc } from '@/helpers/firebase'
+
 // Components
 import Button from '@/components/Button'
 import { SelectField, TextField } from '@/components/Form'
@@ -92,21 +95,27 @@ const gearFields = [
 ]
 
 interface DataEntryProps {
-  type: 'weapon' | 'gear'
+  type: 'weapons' | 'gear'
+
+  onSubmit?: Function
 }
 
-const DataForm = ({ type }: DataEntryProps) => {
+const DataForm = ({ type, onSubmit }: DataEntryProps) => {
   const [fields, setFields] = useState<Array<any>>([])
   const [data, setData] = useForm({})
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault()
+
+    await addFirebaseDoc(type, data)
+
+    onSubmit(data)
   }
 
   useEffect(() => {
     if (type) {
       switch (type) {
-        case 'weapon':
+        case 'weapons':
           setFields(weaponFields)
           break
         case 'gear':
@@ -145,7 +154,7 @@ const DataForm = ({ type }: DataEntryProps) => {
       })}
       <div className='col-span-full flex items-center justify-center'>
         <Button type='submit' variant='primary'>
-          Add {type}
+          Add {type == 'weapons' ? 'weapon' : 'gear'}
         </Button>
       </div>
     </form>

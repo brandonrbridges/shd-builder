@@ -2,11 +2,11 @@
 import React from 'react'
 
 interface ButtonProps {
-  children: string
+  children: any
   type?: 'button' | 'submit'
   variant?: string | 'primary'
 
-  onClick: Function
+  onClick?: Function
 }
 
 const handleStyles = (variant: string) => {
